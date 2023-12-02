@@ -1,7 +1,7 @@
 import Loader from 'components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovieCast } from 'api/movie-api';
+
 import {
   ActorsWrap,
   ActorsList,
@@ -11,6 +11,7 @@ import {
   InfoItem,
   InfoText,
 } from './Cast.styled';
+import { getMovieCast } from 'redux/movies/movie-api';
 
 const Cast = () => {
   const { movieId } = useParams();

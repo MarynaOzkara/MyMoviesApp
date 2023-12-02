@@ -12,22 +12,22 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-// import { authReducer } from './authorization/authSlice';
+import { authReducer } from './authorization/authSlice';
 
 const themePersistConfig = {
   key: 'theme',
   storage,
 };
-// const authPersistCongig = {
-//   key: 'auth',
-//   storage,
-//   whitelist: ['token'],
-// };
+const authPersistCongig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
 const reduser = combineReducers({
   movies: moviesReducer,
   searchMovies: searchMoviesReducer,
   theme: persistReducer(themePersistConfig, themeReducer),
-  // auth: persistReducer(authPersistCongig, authReducer),
+  auth: persistReducer(authPersistCongig, authReducer),
 });
 export const store = configureStore({
   reducer: reduser,

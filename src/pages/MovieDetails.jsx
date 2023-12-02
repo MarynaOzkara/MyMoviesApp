@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Outlet, useParams, useLocation, useNavigate } from 'react-router-dom';
-import { getMovieDetails } from 'api/movie-api';
+
 import {
   MovieDetailsWrap,
   MainWrap,
@@ -19,6 +19,7 @@ import { RiMovie2Line } from 'react-icons/ri';
 
 import Loader from 'components/Loader/Loader';
 import { Suspense } from 'react';
+import { getMovieDetails } from 'redux/movies/movie-api';
 
 const MovieDetails = () => {
   const { movieId } = useParams();

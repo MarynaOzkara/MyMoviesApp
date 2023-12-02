@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovieReview } from 'api/movie-api';
+
 import Loader from 'components/Loader/Loader';
 import { ReviewWrap, ReviewList, ReviewText } from './Review.styled';
+import { getMovieReview } from 'redux/movies/movie-api';
 
 const Review = () => {
   const { movieId } = useParams();

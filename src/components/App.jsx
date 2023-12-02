@@ -1,18 +1,20 @@
-import Home from 'pages/Home';
-import MovieDetails from 'pages/MovieDetails';
-import Movies from 'pages/Movies';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import SheredLayout from './SheredLayout/SheredLayout';
 import Cast from './Cast/Cast';
 import Review from './Review/Review';
-import Profile from 'pages/Profile';
 import Trailer from './Trailer/Trailer';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, darkTheme, lightTheme } from 'constants/themes';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/selectors';
-import Signup from 'pages/Signup';
-import Login from 'pages/Login';
+import { lazy } from 'react';
+
+const Home = lazy(() => import('pages/Home'));
+const Movies = lazy(() => import('pages/Movies'));
+const MovieDetails = lazy(() => import('pages/MovieDetails'));
+const Signup = lazy(() => import('pages/Signup'));
+const Login = lazy(() => import('pages/Login'));
+const Profile = lazy(() => import('pages/Profile'));
 
 export const App = () => {
   const theme = useSelector(selectTheme);
