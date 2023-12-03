@@ -8,6 +8,8 @@ import { GlobalStyles, darkTheme, lightTheme } from 'constants/themes';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/selectors';
 import { lazy } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = lazy(() => import('pages/Home'));
 const Movies = lazy(() => import('pages/Movies'));
@@ -38,6 +40,12 @@ export const App = () => {
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          closeOnClick
+          theme="colored"
+        />
       </>
     </ThemeProvider>
   );

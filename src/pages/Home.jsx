@@ -18,7 +18,7 @@ const Home = () => {
   const totalPages = useSelector(selectTotalPages);
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
-
+  console.log(page);
   useEffect(() => {
     dispatch(getTrendingMovies());
   }, [dispatch]);
@@ -36,6 +36,7 @@ const Home = () => {
         page < totalPages
       ) {
         console.log(e);
+        console.log(page);
         dispatch(getTrendingMovies(page));
       }
 

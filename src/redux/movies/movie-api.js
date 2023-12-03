@@ -22,15 +22,14 @@ const API = ky.create({
 export const getTrendingMovies = createAsyncThunk(
   'movies/getTrending',
   async (page, thunkAPI) => {
+    console.log(page);
     try {
-      // const config = {
-      //   searchParams: {
-      //     page: page,
-      //   },
-      // };
-      // console.log(page);
-      const response = API.get('trending/movie/day').json();
-
+      const searchParams = {
+        page: page,
+      };
+      console.log(searchParams);
+      const response = API.get('trending/movie/day', searchParams).json();
+      console.log(response);
       return response;
     } catch (e) {
       console.log(e.message);
@@ -48,7 +47,7 @@ export const searchMovies = createAsyncThunk(
       };
       console.log(searchParams);
 
-      const response = await API.get('search/movie', { searchParams }).json();
+      const response = await API.get('search/movie', searchParams).json();
       console.log(response.data);
       return response.data;
     } catch (e) {

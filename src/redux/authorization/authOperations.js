@@ -12,7 +12,7 @@ export const token = {
   },
 };
 export const signup = createAsyncThunk(
-  'auth/register',
+  'auth/signup',
   async (credentials, thunkAPI) => {
     console.log(credentials);
     try {
@@ -23,6 +23,49 @@ export const signup = createAsyncThunk(
       return response.data;
     } catch (e) {
       toast.error('Something went wrong. Try again!');
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+export const login = createAsyncThunk(
+  'auth/login',
+  async (credentials, thunkAPI) => {
+    console.log(credentials);
+    try {
+      const { data } = await axios.post('/users/login', credentials);
+      token.set(data.token);
+      toast.success('Welcome back!');
+      console.log(data);
+      return data;
+    } catch (e) {
+      toast.error('Something went wrong. Try again!');
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+  try {
+    await axios.post('/users/logout');
+    token.unset();
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e.message);
+  }
+});
+export const refreshUser = createAsyncThunk(
+  '/auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistToken = state.auth.token;
+    console.log(persistToken);
+    if (persistToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
+    token.set(persistToken);
+    try {
+      const response = await axios.get('/users/current');
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }
