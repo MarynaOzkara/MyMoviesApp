@@ -39,9 +39,9 @@ const Movies = () => {
         scrollHeight - (heightTop + windowHeight) < 100 &&
         page < totalPages
       ) {
-        dispatch(searchMovies({ query: query, page: page + 1 }));
-        // console.log(page);
-        // console.log(query);
+        dispatch(searchMovies({ query: query, page: page }));
+        console.log(page);
+        console.log(query);
       }
 
       // console.log(scrollHeight);

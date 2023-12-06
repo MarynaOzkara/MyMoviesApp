@@ -20,7 +20,7 @@ const Home = () => {
   const dispatch = useDispatch();
   console.log(page);
   useEffect(() => {
-    dispatch(getTrendingMovies());
+    dispatch(getTrendingMovies(1));
   }, [dispatch]);
 
   useEffect(() => {

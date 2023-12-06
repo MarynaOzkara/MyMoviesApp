@@ -24,11 +24,9 @@ export const getTrendingMovies = createAsyncThunk(
   async (page, thunkAPI) => {
     console.log(page);
     try {
-      const searchParams = {
-        page: page,
-      };
-      console.log(searchParams);
-      const response = API.get('trending/movie/day', searchParams).json();
+      const response = API.get('trending/movie/day', {
+        searchParams: { page: page },
+      }).json();
       console.log(response);
       return response;
     } catch (e) {
@@ -41,15 +39,13 @@ export const searchMovies = createAsyncThunk(
   'movies/searchMovies',
   async ({ query, page }, thunkAPI) => {
     try {
-      const searchParams = {
-        query: query,
-        page: page,
-      };
-      console.log(searchParams);
-
-      const response = await API.get('search/movie', searchParams).json();
-      console.log(response.data);
-      return response.data;
+      console.log(query);
+      console.log(page);
+      const response = await API.get('search/movie', {
+        searchParams: { query: query, page: page },
+      }).json();
+      console.log(response);
+      return response;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

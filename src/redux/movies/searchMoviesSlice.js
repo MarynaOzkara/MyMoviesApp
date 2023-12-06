@@ -28,7 +28,7 @@ const searchMoviesSlice = createSlice({
       .addCase(searchMovies.fulfilled, (state, { payload }) => {
         state.movies = state.movies.concat(payload.results);
         // state.movies = [...state.movies, ...payload.results];
-        // state.page = payload.page + 1;
+        state.page = payload.page + 1;
         state.totalPages = payload.total_pages;
         state.isLoading = false;
       })

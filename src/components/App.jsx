@@ -1,8 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import SheredLayout from './SheredLayout/SheredLayout';
-import Cast from './Cast/Cast';
-import Review from './Review/Review';
-import Trailer from './Trailer/Trailer';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, darkTheme, lightTheme } from 'constants/themes';
 import { useSelector } from 'react-redux';
@@ -17,6 +14,9 @@ const MovieDetails = lazy(() => import('pages/MovieDetails'));
 const Signup = lazy(() => import('pages/Signup'));
 const Login = lazy(() => import('pages/Login'));
 const Profile = lazy(() => import('pages/Profile'));
+const Cast = lazy(() => import('components/Cast/Cast'));
+const Trailer = lazy(() => import('components/Trailer/Trailer'));
+const Review = lazy(() => import('components/Review/Review'));
 
 export const App = () => {
   const theme = useSelector(selectTheme);
