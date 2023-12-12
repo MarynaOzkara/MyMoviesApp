@@ -7,6 +7,8 @@ import { selectTheme } from 'redux/selectors';
 import { lazy } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PublicRoute from 'routes/PublicRoutes';
+import PrivateRoutes from 'routes/PrivateRoutes';
 
 const Home = lazy(() => import('pages/Home'));
 const Movies = lazy(() => import('pages/Movies'));
@@ -33,9 +35,30 @@ export const App = () => {
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Review />} />
             </Route>
-            <Route path="signup" element={<Signup />} />
-            <Route path="login" element={<Login />} />
-            <Route path="profile" element={<Profile />} />
+            <Route
+              path="/signup"
+              element={
+                <PublicRoute>
+                  <Signup />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <PublicRoute>
+                  <Login />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <PrivateRoutes>
+                  <Profile />
+                </PrivateRoutes>
+              }
+            />
 
             <Route path="*" element={<Navigate to="/" />} />
           </Route>

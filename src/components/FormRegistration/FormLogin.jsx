@@ -29,7 +29,7 @@ const FormLogin = () => {
   return (
     <>
       <FormWrap autoComplete="off" onSubmit={handleSubmit(submit)}>
-        <FormTitle>Sign up</FormTitle>
+        <FormTitle>Log in</FormTitle>
         <FormLabel htmlFor="email">
           <FormInput
             type="email"
