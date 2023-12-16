@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 export const ToggleWrap = styled.div`
   margin-right: 20px;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   position: relative;
 `;
 export const ToggleLabel = styled.label`
