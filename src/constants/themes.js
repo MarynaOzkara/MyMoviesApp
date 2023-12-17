@@ -9,6 +9,7 @@ export const lightTheme = {
   toggleModal: 'tomato',
   acsent: 'white',
   movieWrap: 'white',
+  moblink: 'tomato',
   regBtn: 'tomato',
 };
 export const darkTheme = {
@@ -20,6 +21,7 @@ export const darkTheme = {
   toggleModal: 'white',
   acsent: 'white',
   movieWrap: '#3A001E',
+  moblink: 'white',
   regBtn: 'white',
 };
 

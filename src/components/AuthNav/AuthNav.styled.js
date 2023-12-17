@@ -14,11 +14,18 @@ export const NavItem = styled.li`
 `;
 export const Link = styled(NavLink)`
   text-decoration: none;
-  font-size: 20px;
-  color: ${props => props.theme.brend};
+  font-size: 26px;
+  color: ${props => props.theme.acsent};
+  &.active {
+    color: ${props => props.theme.reverseBrend};
+  }
+  &:hover,
+  :focus {
+    color: ${props => props.theme.reverseBrend};
+  }
   @media (min-width: 767px) {
     color: ${props => props.theme.acsent};
-
+    font-size: 20px;
     padding: 4px 16px;
     border-radius: 4px;
     transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);

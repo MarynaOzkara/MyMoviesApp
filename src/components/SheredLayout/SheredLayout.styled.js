@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const HeaderWrap = styled.div`
   max-width: 1200px;
+  height: 74px;
   margin: 0 auto;
   padding: 0 15px;
   display: flex;
@@ -19,28 +21,13 @@ export const Header = styled.header`
   background-color: ${props => props.theme.brend};
   box-shadow: var(--shadow);
 `;
-export const NavWrap = styled.div``;
-// export const NavWrap = styled.div`
-//   text-align: center;
-//   background-color: white;
-//   padding: 40px 30px;
-//   color: tomato;
-//   z-index: 999;
-//   position: fixed;
-//   top: 74px;
-//   right: 0;
-//   width: 100%;
-//   height: 100%;
-//   transition: transform 0.3s linear;
-//   &.active {
-//     transform: translateX(100%);
-//   }
-//   @media (min-width: 767px) {
-//     padding: 0px;
-//     background-color: transparent;
-//     position: static;
-//   }
-// `;
+export const LogoLink = styled(NavLink)`
+  text-decoration: none;
+`;
+export const NavWrap = styled.div`
+  display: flex;
+`;
+
 export const BurgerBtn = styled.button`
   display: block;
   width: 24px;
