@@ -11,7 +11,7 @@ import Loader from 'components/Loader/Loader';
 import AppBar from 'components/AppBar/AppBar';
 import { ReactComponent as Logo } from 'images/logo.svg';
 import { LogoLink } from 'components/AppBar/AppBar.styled';
-import { ReactComponent as BurgerMenu } from 'images/burger.svg';
+import { SlMenu, SlClose } from 'react-icons/sl';
 
 const SheredLayout = () => {
   const [isOpen, setOpen] = useState();
@@ -22,9 +22,15 @@ const SheredLayout = () => {
           <LogoLink to="/">
             <Logo />
           </LogoLink>
-          <NavWrap>{isOpen && <AppBar />}</NavWrap>
+          <NavWrap>
+            <AppBar />
+          </NavWrap>
           <BurgerBtn onClick={() => setOpen(!isOpen)}>
-            <BurgerMenu />
+            {!isOpen ? (
+              <SlMenu size={24} color="white" />
+            ) : (
+              <SlClose size={24} color="white" />
+            )}
           </BurgerBtn>
         </HeaderWrap>
       </Header>
