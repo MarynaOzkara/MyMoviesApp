@@ -4,9 +4,10 @@ import { NavLink } from 'react-router-dom';
 export const Autorization = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
   @media (min-width: 767px) {
     flex-direction: row;
+    gap: 20px;
   }
 `;
 export const NavItem = styled.li`

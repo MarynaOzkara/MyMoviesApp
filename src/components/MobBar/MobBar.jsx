@@ -6,21 +6,27 @@ import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/selectors';
 import ModeToggle from 'components/ModeToggle/ModeToggle';
 
-const MobBar = () => {
+const MobBar = ({ closeMobBar }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <>
       <MobNav>
         <MobItem>
-          <MobLink to="/">Home</MobLink>
+          <MobLink to="/" onClick={closeMobBar}>
+            Home
+          </MobLink>
         </MobItem>
         <MobItem>
-          <MobLink to="/movies">Movies</MobLink>
+          <MobLink to="/movies" onClick={closeMobBar}>
+            Movies
+          </MobLink>
         </MobItem>
         <MobItem>
-          <MobLink to="/profile">Profile</MobLink>
+          <MobLink to="/profile" onClick={closeMobBar}>
+            Profile
+          </MobLink>
         </MobItem>
-        {isLoggedIn ? <UserMenu /> : <AuthNav />}
+        {isLoggedIn ? <UserMenu /> : <AuthNav closeMobBar={closeMobBar} />}
         <ModeToggle />
       </MobNav>
     </>

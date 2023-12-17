@@ -28,14 +28,9 @@ export const MobNav = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  gap: 20px;
+  gap: 30px;
   flex-direction: column;
-  /* transform: translateX(-100%);
-  transition: transform 0.3s linear;
-  &.active {
-    transform: translateX(0);
-    overflow: hidden;
-  } */
+
   @media (min-width: 767px) {
     display: none;
   }

@@ -1,15 +1,19 @@
 import React from 'react';
 import { NavItem, Link, Autorization } from './AuthNav.styled';
 
-const AuthNav = () => {
+const AuthNav = ({ closeMobBar }) => {
   return (
     <>
       <Autorization>
         <NavItem>
-          <Link to="/signup">Sign up</Link>
+          <Link to="/signup" onClick={closeMobBar}>
+            Sign up
+          </Link>
         </NavItem>
         <NavItem>
-          <Link to="/login">Log in</Link>
+          <Link to="/login" onClick={closeMobBar}>
+            Log in
+          </Link>
         </NavItem>
       </Autorization>
     </>

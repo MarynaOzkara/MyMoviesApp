@@ -17,6 +17,7 @@ import MobBar from 'components/MobBar/MobBar';
 
 const SheredLayout = () => {
   const [isOpen, setOpen] = useState();
+  const closeMobBar = () => setOpen(!isOpen);
   return (
     <>
       <Header>
@@ -35,7 +36,7 @@ const SheredLayout = () => {
             </BurgerBtn>
           </NavWrap>
         </HeaderWrap>
-        {isOpen && <MobBar />}
+        {isOpen && <MobBar closeMobBar={closeMobBar} />}
       </Header>
       <Container>
         <Suspense fallback={<Loader />}>
