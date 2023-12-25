@@ -89,7 +89,7 @@ const FormRegistration = () => {
         </Error>
         <RegisterBtn type="submit">Sign up</RegisterBtn>
         <AddInfo>
-          Already have an account, please <RegLink to="/login">Log in</RegLink>
+          Already have an account? <RegLink to="/login">Log in</RegLink>
         </AddInfo>
       </FormWrap>
     </>

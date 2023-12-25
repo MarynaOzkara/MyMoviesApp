@@ -68,7 +68,7 @@ const FormLogin = () => {
         </Error>
         <RegisterBtn type="submit">Sign up</RegisterBtn>
         <AddInfo>
-          Don't have an account, please <RegLink to="/signup">Sign up</RegLink>
+          Don't have an account? <RegLink to="/signup">Sign up</RegLink>
         </AddInfo>
       </FormWrap>
     </>

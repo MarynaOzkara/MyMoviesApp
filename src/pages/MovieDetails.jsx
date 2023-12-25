@@ -61,6 +61,8 @@ const MovieDetails = () => {
     production_countries,
   } = movieDetails;
   const userScore = Number(vote_average).toFixed(1);
+  const hour = Math.trunc(runtime / 60);
+  const min = runtime % 60;
   return (
     <main>
       {isLoading && <Loader />}
@@ -85,7 +87,9 @@ const MovieDetails = () => {
                 {''}({new Date(release_date).getFullYear()})
               </MovieTitle>
               <MovieInfo>Rating: {userScore}</MovieInfo>
-              <MovieInfo>Time: {runtime}</MovieInfo>
+              <MovieInfo>
+                Duration: {hour}h {min}min
+              </MovieInfo>
               <MovieInfo>Overview:</MovieInfo>
               <p>{overview}</p>
               <MovieInfo>Genres:</MovieInfo>

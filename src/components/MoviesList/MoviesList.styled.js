@@ -17,7 +17,7 @@ export const MovieList = styled.ul`
 export const MovieItem = styled.li`
   margin: 0 auto;
   list-style: none;
-  /* min-width: 300px; */
+  max-width: 300px;
   background-color: ${props => props.theme.movieWrap};
   border-radius: var(--radii);
   overflow: hidden;
