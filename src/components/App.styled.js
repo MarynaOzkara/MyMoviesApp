@@ -54,7 +54,8 @@ export const Aditional = styled.h3`
   margin-top: 10px;
 `;
 export const AditionalList = styled.ul`
-  padding-left: 10px;
+  padding: 0;
+  /* padding-left: 10px; */
 `;
 export const AdditionalItem = styled.li`
   list-style-type: none;
@@ -85,7 +86,7 @@ export const MoviePageWrap = styled.div`
   margin-top: 30px;
 `;
 export const MoreLink = styled(Link)`
-  width: 100px;
+  width: 100%;
   padding: 4px 8px;
   background-color: ${props => props.theme.brend};
   border-radius: 4px;
@@ -103,6 +104,9 @@ export const MoreLink = styled(Link)`
     background-color: ${props => props.theme.acsent};
     color: ${props => props.theme.brend};
     border: 2px solid ${props => props.theme.brend};
+  }
+  @media (min-width: 767px) {
+    width: 300px;
   }
 `;
 export const MovieInfoWrap = styled.div`

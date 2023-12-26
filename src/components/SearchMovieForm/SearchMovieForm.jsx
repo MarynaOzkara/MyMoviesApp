@@ -2,8 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Input, Button, Form } from './SearchMovieForm.styled';
 import { setPage, setQuery } from 'redux/movies/searchMoviesSlice';
 import { selectSearchQuery } from 'redux/selectors';
+import { useTranslation } from 'react-i18next';
 
 const SearchMovieForm = () => {
+  const { t } = useTranslation();
   const oldQuery = useSelector(selectSearchQuery);
   const dispatch = useDispatch();
 
@@ -30,7 +32,7 @@ const SearchMovieForm = () => {
           autoFocus
           placeholder="Search movie ..."
         />
-        <Button type="submit">Search</Button>
+        <Button type="submit">{t('movies.button')}</Button>
       </Form>
     </>
   );

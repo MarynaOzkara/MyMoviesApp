@@ -13,8 +13,10 @@ import {
   selectSearchTotalPages,
 } from 'redux/selectors';
 import { searchMovies } from 'redux/movies/movie-api';
+import { useTranslation } from 'react-i18next';
 
 const Movies = () => {
+  const { t } = useTranslation();
   const query = useSelector(selectSearchQuery);
   const movies = useSelector(selectSearchMovies);
   const isLoading = useSelector(selectSearchIsLoading);
@@ -56,7 +58,8 @@ const Movies = () => {
 
   return (
     <main>
-      <Title>Search movie</Title>
+      <Title>{t('movies.subtitle')}</Title>
+      {/* <Title>Search movie</Title> */}
       <SearchMovieForm />
       {isLoading && <Loader />}
       {movies && <MoviesList movies={movies} />}

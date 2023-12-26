@@ -21,22 +21,24 @@ const SheredLayout = () => {
   return (
     <>
       <Header>
-        <HeaderWrap>
-          <LogoLink to="/">
-            <Logo />
-          </LogoLink>
-          <NavWrap>
-            <AppBar />
-            <BurgerBtn onClick={() => setOpen(!isOpen)}>
-              {!isOpen ? (
-                <SlMenu size={24} color="white" />
-              ) : (
-                <SlClose size={24} color="white" />
-              )}
-            </BurgerBtn>
-          </NavWrap>
-        </HeaderWrap>
-        {isOpen && <MobBar closeMobBar={closeMobBar} />}
+        <Suspense fallback={<Loader />}>
+          <HeaderWrap>
+            <LogoLink to="/">
+              <Logo />
+            </LogoLink>
+            <NavWrap>
+              <AppBar />
+              <BurgerBtn onClick={() => setOpen(!isOpen)}>
+                {!isOpen ? (
+                  <SlMenu size={24} color="white" />
+                ) : (
+                  <SlClose size={24} color="white" />
+                )}
+              </BurgerBtn>
+            </NavWrap>
+          </HeaderWrap>
+          {isOpen && <MobBar closeMobBar={closeMobBar} />}
+        </Suspense>
       </Header>
       <Container>
         <Suspense fallback={<Loader />}>

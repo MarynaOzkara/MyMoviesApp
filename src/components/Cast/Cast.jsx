@@ -12,8 +12,10 @@ import {
   InfoText,
 } from './Cast.styled';
 import { getMovieCast } from 'redux/movies/movie-api';
+import { useTranslation } from 'react-i18next';
 
 const Cast = () => {
+  const { t } = useTranslation();
   const { movieId } = useParams();
   const [actors, setActors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -39,7 +41,7 @@ const Cast = () => {
       {isLoading && <Loader />}
       <ActorsList>
         {actors.length === 0 ? (
-          <div>There is no information about actors</div>
+          <div>{t('movieDetails.noInfoActor')}</div>
         ) : (
           actors.map(({ cast_id, original_name, character, profile_path }) => (
             <ActorItem key={cast_id}>
@@ -54,12 +56,12 @@ const Cast = () => {
               <InfoList>
                 <InfoItem>
                   <InfoText>
-                    <b>Actor:</b> {original_name}
+                    <b>{t('movieDetails.actor')}:</b> {original_name}
                   </InfoText>
                 </InfoItem>
                 <InfoItem>
                   <InfoText>
-                    <b>Character:</b> {character}
+                    <b>{t('movieDetails.character')}:</b> {character}
                   </InfoText>
                 </InfoItem>
               </InfoList>

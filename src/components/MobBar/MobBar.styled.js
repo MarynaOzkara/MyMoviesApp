@@ -18,9 +18,8 @@ export const MobLink = styled(NavLink)`
   }
 `;
 export const MobNav = styled.div`
-  text-align: center;
   background-color: ${props => props.theme.brend};
-  padding-top: 100px;
+  padding-top: 70px;
   z-index: 999;
   position: absolute;
   top: 74px;
@@ -28,6 +27,7 @@ export const MobNav = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  align-items: center;
   gap: 30px;
   flex-direction: column;
 

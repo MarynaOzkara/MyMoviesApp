@@ -20,8 +20,10 @@ import { RiMovie2Line } from 'react-icons/ri';
 import Loader from 'components/Loader/Loader';
 import { Suspense } from 'react';
 import { getMovieDetails } from 'redux/movies/movie-api';
+import { useTranslation } from 'react-i18next';
 
 const MovieDetails = () => {
+  const { t } = useTranslation();
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -69,7 +71,7 @@ const MovieDetails = () => {
       {movieDetails && (
         <MovieDetailsWrap>
           <BackBtn type="button" onClick={handleClickBackBtn}>
-            Go Back
+            {t('movieDetails.button')}
           </BackBtn>
 
           <MainWrap>
@@ -86,16 +88,20 @@ const MovieDetails = () => {
                 {original_title}
                 {''}({new Date(release_date).getFullYear()})
               </MovieTitle>
-              <MovieInfo>Rating: {userScore}</MovieInfo>
               <MovieInfo>
-                Duration: {hour}h {min}min
+                {t('movieDetails.rating')}: {userScore}
               </MovieInfo>
-              <MovieInfo>Overview:</MovieInfo>
+              <MovieInfo>
+                {t('movieDetails.duration')}: {hour}
+                {t('movieDetails.h')} {min}
+                {t('movieDetails.min')}
+              </MovieInfo>
+              <MovieInfo>{t('movieDetails.overview')}:</MovieInfo>
               <p>{overview}</p>
-              <MovieInfo>Genres:</MovieInfo>
+              <MovieInfo>{t('movieDetails.genres')}:</MovieInfo>
               {genres && genres.map(genre => genre.name).join(', ')}
 
-              <MovieInfo>Countries:</MovieInfo>
+              <MovieInfo>{t('movieDetails.countries')}:</MovieInfo>
               {production_countries &&
                 production_countries
                   .map(production_country => production_country.name)
@@ -103,24 +109,24 @@ const MovieDetails = () => {
             </MovieInfoWrap>
           </MainWrap>
           <AdditionalWrap>
-            <Aditional>Aditional information</Aditional>
+            <Aditional>{t('movieDetails.addInfo')}</Aditional>
             <AditionalList>
               <AdditionalItem>
                 <MoreLink to="trailer" state={from}>
                   <RiMovie2Line />
-                  Trailer
+                  {t('movieDetails.trailer')}
                 </MoreLink>
               </AdditionalItem>
               <AdditionalItem>
                 <MoreLink to="cast" state={from}>
                   <RiMovie2Line />
-                  Cast
+                  {t('movieDetails.cast')}
                 </MoreLink>
               </AdditionalItem>
               <AdditionalItem>
                 <MoreLink to="reviews" state={from}>
                   <RiMovie2Line />
-                  Review
+                  {t('movieDetails.review')}
                 </MoreLink>
               </AdditionalItem>
             </AditionalList>

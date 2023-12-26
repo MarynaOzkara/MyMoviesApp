@@ -11,8 +11,10 @@ import {
   selectTotalPages,
 } from 'redux/selectors';
 import throttle from 'lodash.throttle';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
+  const { t } = useTranslation();
   const movies = useSelector(selectMovies);
   const page = useSelector(selectPage);
   const totalPages = useSelector(selectTotalPages);
@@ -52,7 +54,8 @@ const Home = () => {
 
   return (
     <main>
-      <Title>Trending today</Title>
+      <Title>{t('home.title')}</Title>
+      {/* <Title>Trending today</Title> */}
       {isLoading && <Loader />}
       {movies && <MoviesList movies={movies} />}
     </main>

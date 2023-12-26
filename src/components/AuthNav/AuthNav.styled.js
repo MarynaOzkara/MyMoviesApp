@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Autorization = styled.div`
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 30px;
   @media (min-width: 767px) {

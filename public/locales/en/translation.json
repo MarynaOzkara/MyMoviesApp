@@ -1,0 +1,34 @@
+{
+    "header": {
+        "home": "Home",
+        "movies": "Movies",
+        "profile": "Profile",
+        "signUp": "Sign up",
+        "login": "Log in"
+    },
+    "home": {
+        "title": "Trending movies"
+    },
+    "movies": {
+        "subtitle": "Search movie",
+        "button": "Search"
+    },
+    "movieDetails": {
+        "button": "Go back",
+        "rating": "Rating",
+        "duration": "Duration",
+        "h": "h",
+        "min": "min",
+        "overview": "Overview",
+        "genres": "Genres",
+        "countries": "Countries",
+        "addInfo": "Aditional information",
+        "trailer": "Trailer",
+        "cast": "Cast",
+        "review": "Review",
+        "actor": "Actor",
+        "character": "Character",
+        "noInfoActor": "There is no information about actors",
+        "noInfoReview": "There is no review"
+    }
+}

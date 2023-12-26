@@ -4,8 +4,10 @@ import { useParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import { ReviewWrap, ReviewList, ReviewText } from './Review.styled';
 import { getMovieReview } from 'redux/movies/movie-api';
+import { useTranslation } from 'react-i18next';
 
 const Review = () => {
+  const { t } = useTranslation();
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +33,7 @@ const Review = () => {
       <ReviewList>
         {isLoading && <Loader />}
         {reviews.length === 0 ? (
-          <ReviewWrap>There is no review</ReviewWrap>
+          <ReviewWrap>{t('movieDetails.noInfoReview')}</ReviewWrap>
         ) : (
           reviews.map(({ id, author, content }) => (
             <ReviewWrap key={id}>
