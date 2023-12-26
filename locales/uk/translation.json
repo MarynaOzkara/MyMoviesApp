@@ -1,0 +1,34 @@
+{
+    "header": {
+        "home": "Головна",
+        "movies": "Фільми",
+        "profile": "Профіль",
+        "signUp": "Реєстрація",
+        "login": "Вхід"
+    },
+    "home": {
+        "title": "Популярні фільми"
+    },
+    "movies":{
+        "subtitle": "Знайти фільм",
+        "button": "Знайти"
+    },
+    "movieDetails": {
+        "button": "Назад",
+        "rating": "Рейтинг",
+        "duration": "Тривалість",
+        "h": "г",
+        "min": "хв",
+        "overview": "Огляд",
+        "genres": "Жанр",
+        "countries": "Країна",
+        "addInfo": "Додаткова інформація",
+        "trailer": "Трейлер",
+        "cast": "Актори",
+        "review": "Відгук",
+        "actor": "Актор",
+        "character": "Герой",
+        "noInfoActor": "інформації про акторів не має",
+        "noInfoReview": "Відгуків не має"
+    }
+}
