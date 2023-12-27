@@ -21,10 +21,13 @@ import Loader from 'components/Loader/Loader';
 import { Suspense } from 'react';
 import { getMovieDetails } from 'redux/movies/movie-api';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { selectLenguage } from 'redux/selectors';
 
 const MovieDetails = () => {
   const { t } = useTranslation();
   const { movieId } = useParams();
+  const language = useSelector(selectLenguage);
   const [movieDetails, setMovieDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -36,7 +39,7 @@ const MovieDetails = () => {
     const fetchMoviesDetails = async () => {
       try {
         setIsLoading(true);
-        const details = await getMovieDetails(movieId);
+        const details = await getMovieDetails(movieId, language);
         setMovieDetails(details);
 
         console.log(details);
@@ -47,13 +50,14 @@ const MovieDetails = () => {
       }
     };
     fetchMoviesDetails();
-  }, [movieId]);
+  }, [movieId, language]);
   const handleClickBackBtn = () => {
     navigate(from.from.pathname);
     console.log(from.from.pathname);
   };
   const {
     original_title,
+    title,
     genres,
     overview,
     release_date,
@@ -85,7 +89,7 @@ const MovieDetails = () => {
             />
             <MovieInfoWrap>
               <MovieTitle>
-                {original_title}
+                {title}
                 {''}({new Date(release_date).getFullYear()})
               </MovieTitle>
               <MovieInfo>

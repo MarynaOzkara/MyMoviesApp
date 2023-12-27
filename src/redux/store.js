@@ -13,6 +13,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { authReducer } from './authorization/authSlice';
+import { lenguageReducer } from './lenguages/lenguageSlice';
 
 const themePersistConfig = {
   key: 'theme',
@@ -23,11 +24,16 @@ const authPersistCongig = {
   storage,
   whitelist: ['token'],
 };
+const lenguagePresistConfig = {
+  key: 'lenguage',
+  storage,
+};
 const reduser = combineReducers({
   movies: moviesReducer,
   searchMovies: searchMoviesReducer,
   theme: persistReducer(themePersistConfig, themeReducer),
   auth: persistReducer(authPersistCongig, authReducer),
+  lenguage: persistReducer(lenguagePresistConfig, lenguageReducer),
 });
 export const store = configureStore({
   reducer: reduser,

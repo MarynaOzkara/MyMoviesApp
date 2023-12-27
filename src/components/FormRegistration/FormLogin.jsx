@@ -14,7 +14,9 @@ import {
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/authorization/authOperations';
+import { useTranslation } from 'react-i18next';
 const FormLogin = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const {
     handleSubmit,
@@ -29,7 +31,7 @@ const FormLogin = () => {
   return (
     <>
       <FormWrap autoComplete="off" onSubmit={handleSubmit(submit)}>
-        <FormTitle>Log in</FormTitle>
+        <FormTitle>{t('login.login')}</FormTitle>
         <FormLabel htmlFor="email">
           <FormInput
             type="email"
@@ -44,7 +46,7 @@ const FormLogin = () => {
         </FormLabel>
         <Error>
           {errors.email?.type === 'pattern' && (
-            <ErrorMessage>Type valid email addres</ErrorMessage>
+            <ErrorMessage>{t('login.errorEmailMassage')}</ErrorMessage>
           )}
         </Error>
         <FormLabel htmlFor="password">
@@ -60,15 +62,13 @@ const FormLogin = () => {
         </FormLabel>
         <Error>
           {errors.password?.type === 'pattern' && (
-            <ErrorMessage>
-              Password should have min 6 max 12 simbols: one digit from 0-9, 1
-              lowercase and 1 uppercase characters
-            </ErrorMessage>
+            <ErrorMessage>{t('login.errorPasswordMessage')}</ErrorMessage>
           )}
         </Error>
-        <RegisterBtn type="submit">Sign up</RegisterBtn>
+        <RegisterBtn type="submit">{t('login.loginBtn')}</RegisterBtn>
         <AddInfo>
-          Don't have an account? <RegLink to="/signup">Sign up</RegLink>
+          {t('login.addInfo')}{' '}
+          <RegLink to="/signup">{t('login.signUpBtn')}</RegLink>
         </AddInfo>
       </FormWrap>
     </>

@@ -11,6 +11,7 @@ export const selectSearchMoviePage = state => state.searchMovies.page;
 export const selectSearchTotalPages = state => state.searchMovies.totalPages;
 
 export const selectTheme = state => state.theme.theme;
+export const selectLenguage = state => state.lenguage.lenguage;
 
 export const selectUser = state => state.auth.user;
 export const selectEmail = state => state.auth.user.email;

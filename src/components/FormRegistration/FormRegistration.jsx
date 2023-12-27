@@ -14,8 +14,10 @@ import {
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { signup } from 'redux/authorization/authOperations';
+import { useTranslation } from 'react-i18next';
 
 const FormRegistration = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const {
     handleSubmit,
@@ -30,14 +32,14 @@ const FormRegistration = () => {
   return (
     <>
       <FormWrap autoComplete="off" onSubmit={handleSubmit(submit)}>
-        <FormTitle>Sign up</FormTitle>
+        <FormTitle>{t('signup.signup')}</FormTitle>
         <FormLabel htmlFor="name">
           <FormInput
             type="text"
             id="name"
             {...register('name', {
               minLength: 3,
-              pattern: /^[a-zA-Zа-яА-Я]*$/,
+              pattern: /^[a-zA-Zа-яА-ЯЇїІіЄєҐґ]*$/,
             })}
             required
           />
@@ -45,10 +47,10 @@ const FormRegistration = () => {
         </FormLabel>
         <Error>
           {errors.name?.type === 'minLength' && (
-            <ErrorMessage>Name should have min 3 simbols</ErrorMessage>
+            <ErrorMessage>{t('signup.nameErrorLength')}</ErrorMessage>
           )}
           {errors.name?.type === 'pattern' && (
-            <ErrorMessage>Name should consist of letters</ErrorMessage>
+            <ErrorMessage>{t('signup.nameErrorSimbols')}</ErrorMessage>
           )}
         </Error>
         <FormLabel htmlFor="email">
@@ -65,7 +67,7 @@ const FormRegistration = () => {
         </FormLabel>
         <Error>
           {errors.email?.type === 'pattern' && (
-            <ErrorMessage>Type valid email addres</ErrorMessage>
+            <ErrorMessage>{t('signup.emailError')}</ErrorMessage>
           )}
         </Error>
         <FormLabel htmlFor="password">
@@ -81,15 +83,13 @@ const FormRegistration = () => {
         </FormLabel>
         <Error>
           {errors.password?.type === 'pattern' && (
-            <ErrorMessage>
-              Password should have min 6 max 12 simbols: one digit from 0-9, 1
-              lowercase and 1 uppercase characters
-            </ErrorMessage>
+            <ErrorMessage>{t('signup.errorPasswordMessage')}</ErrorMessage>
           )}
         </Error>
-        <RegisterBtn type="submit">Sign up</RegisterBtn>
+        <RegisterBtn type="submit">{t('signup.signupBtn')}</RegisterBtn>
         <AddInfo>
-          Already have an account? <RegLink to="/login">Log in</RegLink>
+          {t('signup.addInfo')}{' '}
+          <RegLink to="/login">{t('signup.loginBtn')}</RegLink>
         </AddInfo>
       </FormWrap>
     </>

@@ -6,6 +6,7 @@ import { getTrendingMovies } from 'redux/movies/movie-api';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectIsLoading,
+  selectLenguage,
   selectMovies,
   selectPage,
   selectTotalPages,
@@ -17,13 +18,15 @@ const Home = () => {
   const { t } = useTranslation();
   const movies = useSelector(selectMovies);
   const page = useSelector(selectPage);
+  const language = useSelector(selectLenguage);
   const totalPages = useSelector(selectTotalPages);
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
   console.log(page);
+  console.log(language);
   useEffect(() => {
-    dispatch(getTrendingMovies(1));
-  }, [dispatch]);
+    dispatch(getTrendingMovies({ page: 1, language: language }));
+  }, [dispatch, language]);
 
   useEffect(() => {
     const scrollHandler = throttle(e => {
@@ -39,7 +42,7 @@ const Home = () => {
       ) {
         console.log(e);
         console.log(page);
-        dispatch(getTrendingMovies(page));
+        dispatch(getTrendingMovies({ page: page, language: language }));
       }
 
       // console.log(scrollHeight);
@@ -50,7 +53,7 @@ const Home = () => {
     return function () {
       document.removeEventListener('scroll', scrollHandler);
     };
-  }, [dispatch, page, totalPages, isLoading]);
+  }, [dispatch, page, totalPages, isLoading, language]);
 
   return (
     <main>

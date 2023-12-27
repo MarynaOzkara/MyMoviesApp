@@ -7,7 +7,6 @@ const API = ky.create({
   prefixUrl: 'https://api.themoviedb.org/3/',
   searchParams: {
     api_key: API_KEY,
-    language: 'en-US',
     include_adult: false,
   },
 });
@@ -21,28 +20,30 @@ const API = ky.create({
 
 export const getTrendingMovies = createAsyncThunk(
   'movies/getTrending',
-  async (page, thunkAPI) => {
+  async ({ page, language }, thunkAPI) => {
     console.log(page);
+    console.log(language);
     try {
       const response = API.get('trending/movie/day', {
-        searchParams: { page: page },
+        searchParams: { page: page, language: language },
       }).json();
       console.log(response);
       return response;
     } catch (e) {
       console.log(e.message);
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
 
 export const searchMovies = createAsyncThunk(
   'movies/searchMovies',
-  async ({ query, page }, thunkAPI) => {
+  async ({ query, page, language }, thunkAPI) => {
     try {
       console.log(query);
       console.log(page);
       const response = await API.get('search/movie', {
-        searchParams: { query: query, page: page },
+        searchParams: { query: query, page: page, language: language },
       }).json();
       console.log(response);
       return response;
@@ -52,8 +53,10 @@ export const searchMovies = createAsyncThunk(
   }
 );
 
-export const getMovieDetails = async movieId => {
-  const data = await API.get(`movie/${movieId}`).json();
+export const getMovieDetails = async (movieId, language) => {
+  const data = await API.get(`movie/${movieId}`, {
+    searchParams: { language: language },
+  }).json();
   console.log(data);
   return data;
 };

@@ -10,8 +10,11 @@ import i18n from 'i18next';
 import { CiGlobe } from 'react-icons/ci';
 import { IoIosArrowDown } from 'react-icons/io';
 import Flag from 'react-world-flags';
+import { useDispatch } from 'react-redux';
+import { setLenguage } from 'redux/lenguages/lenguageSlice';
 
 const Languages = () => {
+  const dispatch = useDispatch();
   const locales = [
     {
       code: 'en',
@@ -26,6 +29,7 @@ const Languages = () => {
   ];
   const [isOpen, setOpen] = useState(false);
   const closeLang = () => setOpen(!isOpen);
+
   return (
     <>
       <SelectLang>
@@ -36,19 +40,21 @@ const Languages = () => {
           </GlobeBtn>
           {isOpen && (
             <LangList>
-              {locales.map(locale => (
-                <FlagItem key={locale.code}>
+              {locales.map(({ code, title, country_code }) => (
+                <FlagItem key={code}>
                   <FlagBtn
-                    type="button"
-                    onClick={() =>
-                      i18n.changeLanguage(locale.code) && closeLang()
-                    }
+                    type="submit"
+                    onClick={() => {
+                      i18n.changeLanguage(code);
+                      dispatch(setLenguage(code));
+                      closeLang();
+                    }}
                   >
                     <>
-                      <Flag code={locale.country_code} />
+                      <Flag code={country_code} />
                     </>
 
-                    <p>{locale.title}</p>
+                    <p>{title}</p>
                   </FlagBtn>
                 </FlagItem>
               ))}

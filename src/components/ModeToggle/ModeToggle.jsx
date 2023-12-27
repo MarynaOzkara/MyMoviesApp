@@ -18,6 +18,7 @@ const ModeToggle = () => {
   const toggleTheme = () => {
     const theme = prevTheme === 'light' ? 'dark' : 'light';
     dispatch(setTheme(theme));
+
     // setTheme(theme === 'light' ? 'dark' : 'light');
   };
   return (

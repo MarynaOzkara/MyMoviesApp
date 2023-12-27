@@ -6,6 +6,7 @@ import throttle from 'lodash.throttle';
 import { Title } from 'components/App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  selectLenguage,
   selectSearchIsLoading,
   selectSearchMoviePage,
   selectSearchMovies,
@@ -21,14 +22,16 @@ const Movies = () => {
   const movies = useSelector(selectSearchMovies);
   const isLoading = useSelector(selectSearchIsLoading);
   const page = useSelector(selectSearchMoviePage);
+  const language = useSelector(selectLenguage);
   const totalPages = useSelector(selectSearchTotalPages);
   const dispatch = useDispatch();
   // console.log(query);
   // console.log(page);
 
   useEffect(() => {
-    if (query) dispatch(searchMovies({ query: query, page: 1 }));
-  }, [dispatch, query]);
+    if (query)
+      dispatch(searchMovies({ query: query, page: 1, language: language }));
+  }, [dispatch, query, language]);
   useEffect(() => {
     const scrollHandler = throttle(e => {
       if (isLoading === true) {
@@ -41,7 +44,9 @@ const Movies = () => {
         scrollHeight - (heightTop + windowHeight) < 100 &&
         page < totalPages
       ) {
-        dispatch(searchMovies({ query: query, page: page }));
+        dispatch(
+          searchMovies({ query: query, page: page, language: language })
+        );
         console.log(page);
         console.log(query);
       }
@@ -54,7 +59,7 @@ const Movies = () => {
     return function () {
       document.removeEventListener('scroll', scrollHandler);
     };
-  }, [dispatch, page, query, totalPages, isLoading]);
+  }, [dispatch, page, query, totalPages, isLoading, language]);
 
   return (
     <main>
