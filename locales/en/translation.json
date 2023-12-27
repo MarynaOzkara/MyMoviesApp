@@ -30,5 +30,31 @@
         "character": "Character",
         "noInfoActor": "There is no information about actors",
         "noInfoReview": "There is no review"
+    },
+    "login": {
+        "login": "log in",
+        "errorEmailMassage": "Type valid email addres",
+        "errorPasswordMessage": "Password should have min 6 max 12, simbols one digit from 0-9, one lowercase one uppercase characters",
+        "loginBtn": "Log in",
+        "addInfo": "Don't have an account?",
+        "signUpBtn": "Sign up"
+
+    },
+    "signup": {
+        "signup": "Sign up",
+        "nameErrorLength": "Name should have min 3 simbols",
+        "nameErrorSimbols": "Name should consist of letters",
+        "emailError": "Type valid email addres",
+        "errorPasswordMessage": "Password should have min 6 max 12, simbols one digit from 0-9, one lowercase one uppercase characters",
+        "signupBtn": "Sign up",
+        "addInfo": "Already have an account?",
+        "loginBtn": "Log in"
+    },
+    "profile": {
+        "welcome": "Welcome to your profile,"
+    },
+    "userMenu": {
+        "welcome": "Welcome",
+        "loguotBtn": "Logout"
     }
 }
