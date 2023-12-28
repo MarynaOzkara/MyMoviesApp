@@ -6,7 +6,9 @@ import {
   Poster,
   Title,
   PosterWrap,
+  FavWrap,
 } from './MoviesList.styled';
+import Favorite from 'components/Favorite/Favorite';
 
 const MoviesList = ({ movies }) => {
   const location = useLocation();
@@ -28,6 +30,9 @@ const MoviesList = ({ movies }) => {
 
             <Title>{title}</Title>
           </MovieLink>
+          <FavWrap>
+            <Favorite movie={{ id, title, poster_path }} />
+          </FavWrap>
         </MovieItem>
       ))}
     </MovieList>

@@ -43,7 +43,7 @@ const Languages = () => {
               {locales.map(({ code, title, country_code }) => (
                 <FlagItem key={code}>
                   <FlagBtn
-                    type="submit"
+                    type="button"
                     onClick={() => {
                       i18n.changeLanguage(code);
                       dispatch(setLenguage(code));

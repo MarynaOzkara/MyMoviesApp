@@ -14,6 +14,7 @@ import {
 } from 'redux-persist';
 import { authReducer } from './authorization/authSlice';
 import { lenguageReducer } from './lenguages/lenguageSlice';
+import { favoriteReducer } from './favorites/favoritesSlice';
 
 const themePersistConfig = {
   key: 'theme',
@@ -28,12 +29,17 @@ const lenguagePresistConfig = {
   key: 'lenguage',
   storage,
 };
+const favoritePersistConfig = {
+  key: 'favorite',
+  storage,
+};
 const reduser = combineReducers({
   movies: moviesReducer,
   searchMovies: searchMoviesReducer,
   theme: persistReducer(themePersistConfig, themeReducer),
   auth: persistReducer(authPersistCongig, authReducer),
   lenguage: persistReducer(lenguagePresistConfig, lenguageReducer),
+  favorite: persistReducer(favoritePersistConfig, favoriteReducer),
 });
 export const store = configureStore({
   reducer: reduser,

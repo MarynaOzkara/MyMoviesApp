@@ -10,12 +10,13 @@ export const selectSearchIsLoading = state => state.searchMovies.isLoading;
 export const selectSearchMoviePage = state => state.searchMovies.page;
 export const selectSearchTotalPages = state => state.searchMovies.totalPages;
 
-export const selectTheme = state => state.theme.theme;
-export const selectLenguage = state => state.lenguage.lenguage;
-
 export const selectUser = state => state.auth.user;
 export const selectEmail = state => state.auth.user.email;
 export const selectUserName = state => state.auth.user.name;
 export const selectToken = state => state.auth.token;
 export const selectIsLoggedIn = state => state.auth.isLoggedIn;
 export const selectIsRefreshing = state => state.auth.isRefreshing;
+
+export const selectTheme = state => state.theme.theme;
+export const selectLenguage = state => state.lenguage.lenguage;
+export const selectFavorite = state => state.favorite.movies;

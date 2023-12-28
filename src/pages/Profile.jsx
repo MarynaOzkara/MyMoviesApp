@@ -1,15 +1,15 @@
+import MoviesList from 'components/MoviesList/MoviesList';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { selectUserName } from 'redux/selectors';
+import { selectFavorite } from 'redux/selectors';
 
 const Profile = () => {
   const { t } = useTranslation();
-  const userName = useSelector(selectUserName);
+  const movies = useSelector(selectFavorite);
   return (
     <>
-      <h2>
-        {t('profile.welcome')} {userName}
-      </h2>
+      <h2>{t('profile.favorite')}</h2>
+      {movies && <MoviesList movies={movies} />}
     </>
   );
 };

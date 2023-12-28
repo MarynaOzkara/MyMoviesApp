@@ -6,7 +6,7 @@ console.log(currntLang);
 const lenguageSlice = createSlice({
   name: 'lenguage',
   initialState: {
-    lenguage: currntLang,
+    lenguage: currntLang || 'en',
   },
   reducers: {
     setLenguage(state, action) {

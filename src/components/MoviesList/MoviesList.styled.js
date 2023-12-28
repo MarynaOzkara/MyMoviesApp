@@ -21,6 +21,7 @@ export const MovieItem = styled.li`
   background-color: ${props => props.theme.movieWrap};
   border-radius: var(--radii);
   overflow: hidden;
+  position: relative;
   @media (min-width: 767px) {
     flex-basis: calc((100% - 2 * 15px) / 3);
   }
@@ -57,6 +58,16 @@ export const Poster = styled.img`
   height: auto;
   /* width: 100%; */
   transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+`;
+export const FavWrap = styled.div`
+  position: absolute;
+  z-index: 20;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
 `;
 export const Title = styled.h1`
   font-size: 18px;
