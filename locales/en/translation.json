@@ -51,7 +51,8 @@
         "loginBtn": "Log in"
     },
     "profile": {
-        "welcome": "Welcome to your profile,"
+        "welcome": "Welcome to your profile,",
+        "favorite": "List of favorite movies"
     },
     "userMenu": {
         "welcome": "Welcome",
