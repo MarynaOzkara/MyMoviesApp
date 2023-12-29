@@ -12,4 +12,9 @@ export const FavBtn = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  &:hover,
+  :focus {
+    border: none;
+    outline: none;
+  }
 `;

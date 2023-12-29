@@ -8,7 +8,7 @@ export const LangList = styled.ul`
   list-style-type: none;
   padding: 0;
   margin: 0;
-  width: 70px;
+  width: 80px;
   background-color: ${prop => prop.theme.acsent};
   box-shadow: var(--shadow);
   border-radius: 4px;
@@ -16,8 +16,12 @@ export const LangList = styled.ul`
   position: absolute;
 `;
 export const FlagItem = styled.li`
-  padding-left: 4px;
+  padding: 4px;
   margin: 0;
+
+  & p {
+    font-size: 16px;
+  }
   &:hover,
   :focus {
     background-color: ${prop => prop.theme.reverseBrend};

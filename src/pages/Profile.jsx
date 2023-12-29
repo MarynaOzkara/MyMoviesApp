@@ -1,3 +1,4 @@
+import { Title } from 'components/App.styled';
 import MoviesList from 'components/MoviesList/MoviesList';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -8,7 +9,7 @@ const Profile = () => {
   const movies = useSelector(selectFavorite);
   return (
     <>
-      <h2>{t('profile.favorite')}</h2>
+      <Title>{t('profile.favorite')}</Title>
       {movies && <MoviesList movies={movies} />}
     </>
   );

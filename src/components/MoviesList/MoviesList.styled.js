@@ -51,11 +51,13 @@ export const MovieLink = styled(Link)`
 export const PosterWrap = styled.div`
   display: inline-block;
   overflow: hidden;
+  background: #000;
 `;
 export const Poster = styled.img`
   display: block;
   max-width: 100%;
   height: auto;
+  opacity: 0.8;
   /* width: 100%; */
   transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
@@ -67,7 +69,6 @@ export const FavWrap = styled.div`
   width: 36px;
   height: 36px;
   border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.3);
 `;
 export const Title = styled.h1`
   font-size: 18px;

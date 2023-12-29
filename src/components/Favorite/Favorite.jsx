@@ -1,28 +1,31 @@
 import { IoHeartOutline, IoHeartSharp } from 'react-icons/io5';
-
-import React, { useState } from 'react';
 import { FavBtn } from './Favorite.styled';
-import { useDispatch } from 'react-redux';
-import { addToFavorite } from 'redux/favorites/favoritesSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addToFavorite,
+  deleteFromFavorite,
+} from 'redux/favorites/favoritesSlice';
+import { selectFavorite } from 'redux/selectors';
 
 const Favorite = ({ movie }) => {
   const dispatch = useDispatch();
-  const [isFav, setFav] = useState();
-
+  const favMovies = useSelector(selectFavorite);
+  const isMovieInFavorite = favMovies.some(item => item.id === movie.id);
   return (
     <>
-      <FavBtn
-        onClick={() => {
-          setFav(!isFav);
-          dispatch(addToFavorite(movie));
-        }}
-      >
-        {!isFav ? (
-          <IoHeartOutline size={34} color="white" />
-        ) : (
+      {isMovieInFavorite ? (
+        <FavBtn onClick={() => dispatch(deleteFromFavorite(movie))}>
           <IoHeartSharp size={34} color="white" />
-        )}
-      </FavBtn>
+        </FavBtn>
+      ) : (
+        <FavBtn
+          onClick={() => {
+            dispatch(addToFavorite(movie));
+          }}
+        >
+          <IoHeartOutline size={34} color="white" />
+        </FavBtn>
+      )}
     </>
   );
 };
