@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Navigation = styled.nav`
   display: flex;
+  align-items: center;
   gap: 20px;
   @media (max-width: 767px) {
     display: none;
@@ -10,6 +11,8 @@ export const Navigation = styled.nav`
 `;
 export const NavItem = styled.li`
   list-style: none;
+  margin: 0;
+  padding: 0;
 `;
 export const Link = styled(NavLink)`
   text-decoration: none;
