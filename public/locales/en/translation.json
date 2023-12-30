@@ -7,7 +7,8 @@
         "login": "Log in"
     },
     "home": {
-        "title": "Trending movies"
+        "title": "Trending movies",
+        "errorFav": "First login to profile!"
     },
     "movies": {
         "subtitle": "Search movie",
@@ -37,7 +38,10 @@
         "errorPasswordMessage": "Password should have min 6 max 12, simbols one digit from 0-9, one lowercase one uppercase characters",
         "loginBtn": "Log in",
         "addInfo": "Don't have an account?",
-        "signUpBtn": "Sign up"
+        "signUpBtn": "Sign up",
+        "welcome": "Welcome back!",
+        "error": "Something went wrong. Try again!"
+        
 
     },
     "signup": {
@@ -48,7 +52,9 @@
         "errorPasswordMessage": "Password should have min 6 max 12, simbols one digit from 0-9, one lowercase one uppercase characters",
         "signupBtn": "Sign up",
         "addInfo": "Already have an account?",
-        "loginBtn": "Log in"
+        "loginBtn": "Log in",
+        "welcome": "Welcome to MyMoviesApp!",
+        "error": "Something went wrong. Try again!"
     },
     "profile": {
         "welcome": "Welcome to your profile,",

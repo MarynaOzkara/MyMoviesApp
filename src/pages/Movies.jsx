@@ -64,7 +64,6 @@ const Movies = () => {
   return (
     <main>
       <Title>{t('movies.subtitle')}</Title>
-      {/* <Title>Search movie</Title> */}
       <SearchMovieForm />
       {isLoading && <Loader />}
       {movies && <MoviesList movies={movies} />}

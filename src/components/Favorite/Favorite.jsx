@@ -5,10 +5,14 @@ import {
   addToFavorite,
   deleteFromFavorite,
 } from 'redux/favorites/favoritesSlice';
-import { selectFavorite } from 'redux/selectors';
+import { selectFavorite, selectIsLoggedIn } from 'redux/selectors';
+import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 const Favorite = ({ movie }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const favMovies = useSelector(selectFavorite);
   const isMovieInFavorite = favMovies.some(item => item.id === movie.id);
   return (
@@ -20,7 +24,9 @@ const Favorite = ({ movie }) => {
       ) : (
         <FavBtn
           onClick={() => {
-            dispatch(addToFavorite(movie));
+            isLoggedIn
+              ? dispatch(addToFavorite(movie))
+              : toast.error(t('home.errorFav'));
           }}
         >
           <IoHeartOutline size={34} color="white" />

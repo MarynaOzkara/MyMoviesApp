@@ -58,7 +58,6 @@ const Home = () => {
   return (
     <main>
       <Title>{t('home.title')}</Title>
-      {/* <Title>Trending today</Title> */}
       {isLoading && <Loader />}
       {movies && <MoviesList movies={movies} />}
     </main>
